@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+
+    <!-- Création de la table certifications -->
+    <changeSet id="1" author="manal">
+        <createTable tableName="certifications">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issuer" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_obtained" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Insertion des certifications -->
+    <changeSet id="2" author="manal">
+        <insert tableName="certifications">
+            <column name="title" value="JUnit 5, Mockito, PowerMock, TDD, BDD &amp; ATTD"/>
+            <column name="issuer" value="Udemy"/>
+            <column name="description" value="Formation sur les tests unitaires et pratiques TDD / BDD"/>
+            <column name="date_obtained" value="04/2025"/>
+        </insert>
+
+        <insert tableName="certifications">
+            <column name="title" value="Angular The complete guide '2025 Edition'"/>
+            <column name="issuer" value="Udemy"/>
+            <column name="description" value="Formation complète sur Angular 2025"/>
+            <column name="date_obtained" value="04/2025"/>
+        </insert>
+
+        <insert tableName="certifications">
+            <column name="title" value="Les fondements de la gestion de projet agile"/>
+            <column name="issuer" value="LinkedIn Learning"/>
+            <column name="description" value="Formation sur la gestion de projet agile"/>
+            <column name="date_obtained" value="03/2025"/>
+        </insert>
+
+        <insert tableName="certifications">
+            <column name="title" value="Building Scalable Java Microservices with Spring Boot and Spring Cloud"/>
+            <column name="issuer" value="Coursera, formation de Google Cloud"/>
+            <column name="description" value="Création de microservices Java évolutifs"/>
+            <column name="date_obtained" value="11/2024"/>
+        </insert>
+
+        <insert tableName="certifications">
+            <column name="title" value="React Native"/>
+            <column name="issuer" value="Coursera, Meta"/>
+            <column name="description" value="Formation au développement mobile avec React Native"/>
+            <column name="date_obtained" value="04/2024"/>
+        </insert>
+
+        <insert tableName="certifications">
+            <column name="title" value="Software Engineering: Modeling Software Systems using UML"/>
+            <column name="issuer" value="Coursera, The Hong Kong University Of Science"/>
+            <column name="description" value="Modélisation des systèmes logiciels avec UML"/>
+            <column name="date_obtained" value="04/2023"/>
+        </insert>
+
+        <insert tableName="certifications">
+            <column name="title" value="Spécialisation Python for Everybody"/>
+            <column name="issuer" value="Coursera, Université du Michigan"/>
+            <column name="description" value="Incluant Python Data Structures, Using Databases with Python, Using Python to Access Web Data, et Capstone Project"/>
+            <column name="date_obtained" value="05/2023"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

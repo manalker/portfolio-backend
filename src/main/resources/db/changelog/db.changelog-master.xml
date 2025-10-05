@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <!-- Import des fichiers de changements -->
+    <include file="db.changelog-1.0-projects.xml"/>
+    <include file="db.changelog-1.1-certifications.xml"/>
+    <include file="db.changelog-1.2-experiences.xml"/>
+    <include file="db.changelog-1.3-formations.xml"/>
+    <include file="db.changelog-1.4-contacts.xml"/>
+    <include file="db.changelog-1.5-skills.xml"/>
+</databaseChangeLog>

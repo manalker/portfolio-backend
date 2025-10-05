@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+
+    <!-- Création de la table contacts -->
+    <changeSet id="0" author="manal">
+        <createTable tableName="contacts">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="phone" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="linkedin" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="github" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Insertion du contact principal -->
+    <changeSet id="1" author="manal">
+        <insert tableName="contacts">
+            <column name="phone" value="+212 6 52 96 76 43" />
+            <column name="email" value="manal.kerroumi@gmail.com" />
+            <column name="city" value="Salé, Maroc" />
+            <column name="linkedin" value="https://www.linkedin.com/in/manal-kerroumi-9701541b5/" />
+            <column name="github" value="https://github.com/manalker?tab=repositories" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+
+    <changeSet id="0" author="manal">
+        <createTable tableName="experiences">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)"/>
+            <column name="company" type="varchar(255)"/>
+            <column name="start_date" type="date"/>
+            <column name="end_date" type="date"/>
+            <column name="type" type="varchar(255)"/>
+            <column name="tasks" type="text"/>
+            <column name="technologies" type="text"/>
+        </createTable>
+    </changeSet>
+
+    <!-- Changeset pour le stage DXC Technology -->
+    <changeSet id="1" author="manal">
+        <insert tableName="experiences">
+            <column name="title" value="Refonte et amélioration technique d'une solution digitale de gestion de Pipeline commerciale (Si- Gestion)" />
+            <column name="company" value="DXC Technology - Technopolis" />
+            <column name="start_date" value="2025-03-03" />
+            <column name="end_date" value="2025-09-03" />
+            <column name="type" value="Stage de fin d'études" />
+            <column name="tasks" value="Analyse de l’existant et rédaction des spécifications fonctionnelles et techniques. Développement back-end (Spring Boot, JPA, API REST) et optimisation des accès aux données. Refonte des interfaces front-end avec Angular (dashboards, formulaires, filtres). Gestion des migrations de base de données avec Liquibase. Réalisation de tests unitaires et d’intégration (JUnit, Mockito). Suivi agile du projet via Azure DevOps et gestion du code source sur GitHub." />
+            <column name="technologies" value="Java / Spring Boot / Angular / Postman / IntelliJ IDEA / PostgreSQL / Azure DevOps / GitHub / Microsoft Teams / Liquibase / NPM / Maven / UML" />
+        </insert>
+    </changeSet>
+
+    <!-- Changeset pour le stage Ministère de l’Équipement et de l’Eau -->
+    <changeSet id="2" author="manal">
+        <insert tableName="experiences">
+            <column name="title" value="Conception, développement et réalisation d'une application web de gestion des tickets" />
+            <column name="company" value="Ministère de l’Équipement et de l’Eau - Rabat" />
+            <column name="start_date" value="2024-07-01" />
+            <column name="end_date" value="2024-08-30" />
+            <column name="type" value="Stage" />
+            <column name="tasks" value="Étude des processus existants de gestion des tickets. Conception de la base de données et mise en place du modèle relationnel. Réalisation des maquettes (avec Figma). Développement des modules de création, suivi et clôture de tickets. Intégration de l’authentification et gestion des profils utilisateurs." />
+            <column name="technologies" value="PHP / Laravel / MySQL / HTML / CSS / Bootstrap / GitHub / UML" />
+        </insert>
+    </changeSet>
+
+    <!-- Changeset pour le stage Agence Nationale des Eaux et Forêts -->
+    <changeSet id="3" author="manal">
+        <insert tableName="experiences">
+            <column name="title" value="Conception et mise en œuvre d'un projet de réalisation d'une application web pour la gestion des contentieux" />
+            <column name="company" value="Agence Nationale des Eaux et Forêts - Rabat" />
+            <column name="start_date" value="2023-07-01" />
+            <column name="end_date" value="2023-08-31" />
+            <column name="type" value="Stage d’application" />
+            <column name="tasks" value="Analyse des besoins métier et rédaction des spécifications fonctionnelles. Conception de la base de données et modélisation UML. Développement des interfaces web (front-end et back-end). Intégration des fonctionnalités de gestion et suivi des contentieux. Réalisation des tests unitaires et validation fonctionnelle." />
+            <column name="technologies" value="Python / Django / HTML / CSS / Bootstrap / SQLite / UML" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

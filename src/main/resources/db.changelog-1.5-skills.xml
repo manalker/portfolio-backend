@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
+
+    <!-- Création de la table skills -->
+    <changeSet id="0" author="manal">
+        <createTable tableName="skills">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="category" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(1000)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <!-- Insertion des compétences techniques -->
+    <changeSet id="1" author="manal">
+        <insert tableName="skills">
+            <column name="category" value="Langages de programmation" />
+            <column name="description" value="C / Php / C++ / C# / JAVA / J2EE" />
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile" />
+            <column name="description" value="Angular / HTML / CSS / JavaScript / Bootstrap / React / Laravel / Git / GitHub / Flutter / Dart / NodeJs" />
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD" />
+            <column name="description" value="Administration Oracle / SQL / PLSQL / SQLite / MongoDB / MySQL / SQL Server / PostgreSQL / Liquibase" />
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Modélisation" />
+            <column name="description" value="UML / Merise" />
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Administration Windows" />
+            <column name="description" value="Azure" />
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Données Massives" />
+            <column name="description" value="Big Data / Data Warehouse" />
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
