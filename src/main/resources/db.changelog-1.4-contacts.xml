@@ -5,8 +5,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <!-- Création de la table contacts -->
+    <!-- Création de la table contacts si elle n'existe pas -->
     <changeSet id="0" author="manal">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="contacts"/>
+            </not>
+        </preConditions>
+
         <createTable tableName="contacts">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>

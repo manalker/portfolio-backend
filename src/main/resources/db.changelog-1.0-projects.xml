@@ -2,72 +2,86 @@
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="
-        http://www.liquibase.org/xml/ns/dbchangelog
-        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <!-- Création de la table projects -->
+    <!-- Création de la table projects si elle n'existe pas -->
     <changeSet id="1" author="manal">
-        <createTable tableName="projects" >
-            <column name="id" type="BIGSERIAL">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="projects"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="projects">
+            <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="title" type="VARCHAR(255)"/>
-            <column name="description" type="VARCHAR(255)"/>
-            <column name="technologies" type="VARCHAR(255)"/>
-            <column name="image_url" type="VARCHAR(255)"/>
+            <column name="title" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="technologies" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image_url" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 
     <!-- Insertion des projets -->
     <changeSet id="2" author="manal">
         <insert tableName="projects">
-            <column name="title" value="Site web pour présenter mes projets"/>
-            <column name="description" value="Portfolio Website"/>
-            <column name="technologies" value="HTML, CSS, JS"/>
+            <column name="title" value="Portfolio Website"/>
+            <column name="description" value="Création de mon portfolio personnel pour présenter mes projets, compétences, formations et expériences."/>
+            <column name="technologies" value="Java, SpringBoot, Angular, HTML, CSS, JS, PostgreSQL, Github"/>
             <column name="image_url" value="portfolio.png"/>
         </insert>
 
         <insert tableName="projects">
-            <column name="title" value="Application pour gérer les emplois du temps des étudiants"/>
-            <column name="description" value="Développement d’ agenda pour les étudiants"/>
+            <column name="title" value="Agenda étudiant"/>
+            <column name="description" value="Développement d’une application mobile To-Do List pour aider les étudiants à gérer leurs tâches et événements académiques. Permet la création, modification et suppression des tâches, gére les tâches selon leur priorité et permet les notifications en temps réel ainssi qu'uen gestion des notes."/>
             <column name="technologies" value="Flutter, Dart, Node.js, MongoDB, Firebase, Postman, Figma, UML, GitHub, VSCode"/>
             <column name="image_url" value="agenda.png"/>
         </insert>
 
         <insert tableName="projects">
-            <column name="title" value="Permet d'évaluer la faisabilité d'un projet"/>
-            <column name="description" value="Application d’évaluation de faisabilité de projet entrepreneurial"/>
+            <column name="title" value="Évaluation de faisabilité d'un projet entrepreuneurial"/>
+            <column name="description" value="Application permettant d’évaluer la faisabilité d’un projet entrepreneurial.Fournit une analyse complète et un rapport sur les aspects techniques, financiers et marketing,et permet au client de bien analyser la faisabilité de leurs projets pour une meilleur prise de décision"/>
             <column name="technologies" value="Python, Flask, Anaconda, VSCode, GitHub, Postman, React, MySQL"/>
             <column name="image_url" value="evaluation.png"/>
         </insert>
 
         <insert tableName="projects">
-            <column name="title" value="Gestion des RH pour une entreprise"/>
-            <column name="description" value="Développement d’une application de gestion des Ressources Humaines"/>
+            <column name="title" value="Gestion des RH"/>
+            <column name="description" value="Développement d’une application web pour gérer les ressources humaines d’une entreprise : employés, congés, salaires et suivi des performances."/>
             <column name="technologies" value="Java, JEE, React, Bootstrap, SpringBoot, Spring Data, Spring MVC, Thymeleaf, MySQL, IntelliJ IDEA"/>
             <column name="image_url" value="rh.png"/>
         </insert>
 
         <insert tableName="projects">
-            <column name="title" value="Application pour partager des voitures entre utilisateurs"/>
-            <column name="description" value="Développement d'une application mobile d'autopartage"/>
+            <column name="title" value="Autopartage"/>
+            <column name="description" value="Application mobile permettant aux utilisateurs de partager leurs voitures.Les utilisateurs peuvent réserver, suivre et gérer des trajets via l’application."/>
             <column name="technologies" value="Flutter, Dart, Node.js, MongoDB, Firebase, Postman, Figma, UML, GitHub, VSCode"/>
             <column name="image_url" value="autopartage.png"/>
         </insert>
 
         <insert tableName="projects">
-            <column name="title" value="Gestion des factures en ligne"/>
-            <column name="description" value="Développement d'une application web de gestion des factures"/>
+            <column name="title" value="Gestion des factures"/>
+            <column name="description" value="Développement d’une application web pour gérer les factures des clients et leur paiement: création, envoi et suivi des paiements, avec tableau de bord pour l’administration."/>
             <column name="technologies" value="Python, Django, Bootstrap, JavaScript, HTML, CSS, VSCode"/>
             <column name="image_url" value="factures.png"/>
         </insert>
 
         <insert tableName="projects">
-            <column name="title" value="Gestion des commandes via microservices"/>
-            <column name="description" value="Développement d'une application de gestion des commandes"/>
+            <column name="title" value="Gestion des commandes "/>
+            <column name="description" value="Application de gestion des commandes basée sur une architecture microservices. Permet le suivi, traitement et notification des commandes de manière scalable."/>
             <column name="technologies" value="IntelliJ IDEA, Microservices, SpringBoot, Spring Cloud, Eureka, GitHub, UML"/>
             <column name="image_url" value="commandes.png"/>
         </insert>
     </changeSet>
+
 </databaseChangeLog>

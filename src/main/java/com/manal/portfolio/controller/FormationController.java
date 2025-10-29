@@ -9,14 +9,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/formations")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class FormationController {
 
     @Autowired
     private FormationRepository formationRepository;
 
+    // Retirer "/formations" pour que l'URL soit /api/formations
     @GetMapping
-    public List<Formation> getAllFormations() {
+    public List<Formation> getFormations() {
         return formationRepository.findAll();
     }
 
@@ -25,3 +26,4 @@ public class FormationController {
         return formationRepository.save(formation);
     }
 }
+

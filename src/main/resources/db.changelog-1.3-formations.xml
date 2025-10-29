@@ -5,19 +5,25 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <!-- Création de la table formations -->
+    <!-- Création de la table formations si elle n'existe pas -->
     <changeSet id="0" author="manal">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="formations"/>
+            </not>
+        </preConditions>
+
         <createTable tableName="formations">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="title" type="varchar(255)">
+            <column name="diplome" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="school" type="varchar(255)">
+            <column name="etablissement" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="year" type="varchar(50)">
+            <column name="periode" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -26,18 +32,18 @@
     <!-- Insertion formation Diplôme d’ingénieur en informatique et réseaux -->
     <changeSet id="1" author="manal">
         <insert tableName="formations">
-            <column name="title" value="Diplôme d’ingénieur en informatique et réseaux (Option : MIAGE)" />
-            <column name="school" value="École Marocaine des Sciences de l’Ingénieur, Rabat" />
-            <column name="year" value="2020-2025" />
+            <column name="diplome" value="Diplôme d’ingénieur en informatique et réseaux (Option : MIAGE)" />
+            <column name="etablissement" value="École Marocaine des Sciences de l’Ingénieur, Rabat" />
+            <column name="periode" value="2020-2025" />
         </insert>
     </changeSet>
 
     <!-- Insertion formation Baccalauréat Science Physique -->
     <changeSet id="2" author="manal">
         <insert tableName="formations">
-            <column name="title" value="Baccalauréat Science Physique" />
-            <column name="school" value="Al Jil Essaid, Fkih Ben Salah" />
-            <column name="year" value="2019-2020" />
+            <column name="diplome" value="Baccalauréat Science Physique" />
+            <column name="etablissement" value="Al Jil Essaid, Fkih Ben Salah" />
+            <column name="periode" value="2019-2020" />
         </insert>
     </changeSet>
 

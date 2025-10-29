@@ -1,0 +1,18 @@
+{
+  "HOME": {
+    "HELLO": "Hello 👋, I am {{name}}",
+    "TITLE": "Computer & Network Engineer (MIAGE)",
+    "DESCRIPTION": "Computer and network engineer (MIAGE option), with solid experience in developing and implementing digital solutions...",
+    "DOWNLOAD_CV": "📄 Download my CV"
+  },
+  "NAV": {
+    "ABOUT": "About",
+    "PROJECTS": "Projects",
+    "CERTIFICATIONS": "Certifications",
+    "TRAINING": "Training",
+    "EXPERIENCES": "Experiences",
+    "SKILLS": "Skills",
+    "CONTACT": "Contact",
+    "CV": "CV"
+  }
+}

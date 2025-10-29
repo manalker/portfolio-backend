@@ -1,0 +1,18 @@
+{
+  "HOME": {
+    "HELLO": "Bonjour 👋, je suis {{name}}",
+    "TITLE": "Ingénieure en Informatique & Réseaux (MIAGE)",
+    "DESCRIPTION": "Ingénieure en informatique et réseaux (option MIAGE), avec une solide expérience dans le développement et la mise en œuvre de solutions digitales...",
+    "DOWNLOAD_CV": "📄 Télécharger mon CV"
+  },
+  "NAV": {
+    "ABOUT": "À propos",
+    "PROJECTS": "Projets",
+    "CERTIFICATIONS": "Certifications",
+    "TRAINING": "Formations",
+    "EXPERIENCES": "Expériences",
+    "SKILLS": "Compétences",
+    "CONTACT": "Contact",
+    "CV": "CV"
+  }
+}

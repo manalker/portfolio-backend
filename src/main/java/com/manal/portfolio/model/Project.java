@@ -14,6 +14,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 public class Project implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 3662619892003028675L;
 
@@ -21,12 +22,15 @@ public class Project implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     @NonNull
     private String title;
 
+    @Column(columnDefinition = "TEXT")
     @NonNull
     private String description;
 
+    @Column(columnDefinition = "TEXT")
     @NonNull
     private String technologies;
 

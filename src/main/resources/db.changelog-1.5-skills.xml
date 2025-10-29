@@ -5,8 +5,14 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <!-- Création de la table skills -->
+    <!-- Création de la table skills si elle n'existe pas -->
     <changeSet id="0" author="manal">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="skills"/>
+            </not>
+        </preConditions>
+
         <createTable tableName="skills">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
@@ -14,38 +20,188 @@
             <column name="category" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="description" type="varchar(1000)">
+            <column name="description" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="icon" type="varchar(255)"/>
         </createTable>
     </changeSet>
 
     <!-- Insertion des compétences techniques -->
     <changeSet id="1" author="manal">
+
+        <!-- Langages de programmation -->
         <insert tableName="skills">
-            <column name="category" value="Langages de programmation" />
-            <column name="description" value="C / Php / C++ / C# / JAVA / J2EE" />
+            <column name="category" value="Langages de programmation"/>
+            <column name="description" value="C"/>
+            <column name="icon" value="devicon-c-plain colored"/>
         </insert>
         <insert tableName="skills">
-            <column name="category" value="Développement Web &amp; Mobile" />
-            <column name="description" value="Angular / HTML / CSS / JavaScript / Bootstrap / React / Laravel / Git / GitHub / Flutter / Dart / NodeJs" />
+            <column name="category" value="Langages de programmation"/>
+            <column name="description" value="C++"/>
+            <column name="icon" value="devicon-cplusplus-plain colored"/>
         </insert>
         <insert tableName="skills">
-            <column name="category" value="SGBD" />
-            <column name="description" value="Administration Oracle / SQL / PLSQL / SQLite / MongoDB / MySQL / SQL Server / PostgreSQL / Liquibase" />
+            <column name="category" value="Langages de programmation"/>
+            <column name="description" value="C#"/>
+            <column name="icon" value="devicon-csharp-plain colored"/>
         </insert>
         <insert tableName="skills">
-            <column name="category" value="Modélisation" />
-            <column name="description" value="UML / Merise" />
+            <column name="category" value="Langages de programmation"/>
+            <column name="description" value="PHP"/>
+            <column name="icon" value="devicon-php-plain colored"/>
         </insert>
         <insert tableName="skills">
-            <column name="category" value="Administration Windows" />
-            <column name="description" value="Azure" />
+            <column name="category" value="Langages de programmation"/>
+            <column name="description" value="JAVA"/>
+            <column name="icon" value="devicon-java-plain colored"/>
         </insert>
         <insert tableName="skills">
-            <column name="category" value="Données Massives" />
-            <column name="description" value="Big Data / Data Warehouse" />
+            <column name="category" value="Langages de programmation"/>
+            <column name="description" value="J2EE"/>
+            <column name="icon" value="devicon-java-plain colored"/>
         </insert>
+
+        <!-- Développement Web &amp;  Mobile -->
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp;  Mobile"/>
+            <column name="description" value="Angular"/>
+            <column name="icon" value="devicon-angularjs-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp;  Mobile"/>
+            <column name="description" value="HTML"/>
+            <column name="icon" value="devicon-html5-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp;  Mobile"/>
+            <column name="description" value="CSS"/>
+            <column name="icon" value="devicon-css3-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp;  Mobile"/>
+            <column name="description" value="JavaScript"/>
+            <column name="icon" value="devicon-javascript-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="Bootstrap"/>
+            <column name="icon" value="devicon-bootstrap-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="React"/>
+            <column name="icon" value="devicon-react-original colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="Laravel"/>
+            <column name="icon" value="devicon-laravel-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="Git"/>
+            <column name="icon" value="devicon-git-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="GitHub"/>
+            <column name="icon" value="devicon-github-original colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="Flutter"/>
+            <column name="icon" value="devicon-flutter-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="Dart"/>
+            <column name="icon" value="devicon-dart-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Développement Web &amp; Mobile"/>
+            <column name="description" value="NodeJs"/>
+            <column name="icon" value="devicon-nodejs-plain colored"/>
+        </insert>
+
+        <!-- SGBD -->
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="Administration Oracle"/>
+            <column name="icon" value="devicon-oracle-original colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="SQL"/>
+            <column name="icon" value="devicon-mysql-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="PL/SQL"/>
+            <column name="icon" value="devicon-oracle-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="SQLite"/>
+            <column name="icon" value="devicon-sqlite-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="MongoDB"/>
+            <column name="icon" value="devicon-mongodb-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="MySQL"/>
+            <column name="icon" value="devicon-mysql-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="SQL Server"/>
+            <column name="icon" value="devicon-microsoftsqlserver-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="PostgreSQL"/>
+            <column name="icon" value="devicon-postgresql-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="SGBD"/>
+            <column name="description" value="Liquibase"/>
+            <column name="icon" value="devicon-liquibase-plain colored"/>
+        </insert>
+
+        <!-- Modélisation -->
+        <insert tableName="skills">
+            <column name="category" value="Modélisation"/>
+            <column name="description" value="UML"/>
+            <column name="icon" value="devicon-uml-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Modélisation"/>
+            <column name="description" value="Merise"/>
+            <column name="icon" value="devicon-database-plain colored"/>
+        </insert>
+
+        <!-- Administration Windows -->
+        <insert tableName="skills">
+            <column name="category" value="Administration Windows"/>
+            <column name="description" value="Azure"/>
+            <column name="icon" value="devicon-azure-plain colored"/>
+        </insert>
+
+        <!-- Données Massives -->
+        <insert tableName="skills">
+            <column name="category" value="Données Massives"/>
+            <column name="description" value="Big Data"/>
+            <column name="icon" value="devicon-hadoop-plain colored"/>
+        </insert>
+        <insert tableName="skills">
+            <column name="category" value="Données Massives"/>
+            <column name="description" value="Data Warehouse"/>
+            <column name="icon" value="devicon-snowflake-plain colored"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>

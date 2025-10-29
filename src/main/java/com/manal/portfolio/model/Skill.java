@@ -26,4 +26,6 @@ public class Skill implements Serializable {
 
     @NonNull
     private String description; // Exemple: "C / Php / C++ / C# / JAVA / J2EE"
+
+    private String icon;
 }

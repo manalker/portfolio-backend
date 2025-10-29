@@ -25,11 +25,13 @@ public class Certification implements Serializable {
     private String title;
 
     @NonNull
-    private String issuer;   // organisme qui délivre la certification
+    private String issuer;
 
     @NonNull
     private String description;
 
     @NonNull
-    private String dateObtained;  // format "MM/YYYY"
+    private String dateObtained;
+
+    private String pdfUrl;
 }

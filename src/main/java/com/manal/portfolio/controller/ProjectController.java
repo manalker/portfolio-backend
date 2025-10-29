@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
-@CrossOrigin(origins = "*") // pour autoriser Angular à accéder à l'API
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProjectController {
 
     @Autowired
