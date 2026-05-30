@@ -5,65 +5,136 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <!-- Création de la table experiences si elle n'existe pas -->
     <changeSet id="0" author="manal">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="experiences"/>
             </not>
         </preConditions>
-
         <createTable tableName="experiences">
             <column name="id" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="title" type="varchar(255)"/>
             <column name="company" type="varchar(255)"/>
-            <column name="start_date" type="date"/>
-            <column name="end_date" type="date"/>
+            <column name="start_date" type="varchar(50)"/>
+            <column name="end_date" type="varchar(50)"/>
             <column name="type" type="varchar(255)"/>
             <column name="tasks" type="text"/>
             <column name="technologies" type="text"/>
         </createTable>
     </changeSet>
 
-    <!-- Changeset pour le stage DXC Technology -->
+    <!-- 1. Développeuse full-stack & QA — Manaos (mars 2026 → mai 2026) -->
     <changeSet id="1" author="manal">
         <insert tableName="experiences">
-            <column name="title" value="Refonte et amélioration technique d'une solution digitale de gestion de Pipeline commerciale (Si- Gestion)" />
-            <column name="company" value="DXC Technology - Technopolis" />
-            <column name="start_date" value="2025-03-03" />
-            <column name="end_date" value="2025-09-03" />
-            <column name="type" value="Stage de fin d'études" />
-            <column name="tasks" value="Analyse de l’existant et rédaction des spécifications fonctionnelles et techniques. Développement back-end (Spring Boot, JPA, API REST) et optimisation des accès aux données. Refonte des interfaces front-end avec Angular (dashboards, formulaires, filtres). Gestion des migrations de base de données avec Liquibase. Réalisation de tests unitaires et d’intégration (JUnit, Mockito). Suivi agile du projet via Azure DevOps et gestion du code source sur GitHub." />
-            <column name="technologies" value="Java / Spring Boot / Angular / Postman / IntelliJ IDEA / PostgreSQL / Azure DevOps / GitHub / Microsoft Teams / Liquibase / NPM / Maven / UML" />
+            <column name="title" value="Développement et maintenance d'applications web (Frontend et Backend)"/>
+            <column name="company" value="Manaos Consulting - Casablanca"/>
+            <column name="start_date" value="03/03/2026"/>
+            <column name="end_date" value="25/05/2026"/>
+            <column name="type" value="Développeuse full-stack &amp; QA"/>
+            <column name="tasks" value="Développement et maintenance d'applications web (Frontend et Backend);Implémentation d'APIs, gestion de bases de données et résolution de bugs;Réalisation de tests QA pour garantir la qualité et la performance des applications"/>
+            <column name="technologies" value="PHP / Laravel / MySQL / NuxtJS / API Rest / Postman / GitLab / WordPress"/>
         </insert>
     </changeSet>
 
-    <!-- Changeset pour le stage Ministère de l’Équipement et de l’Eau -->
+    <!-- 2. Stage Manaos (nov 2025 → mars 2026) -->
     <changeSet id="2" author="manal">
         <insert tableName="experiences">
-            <column name="title" value="Conception, développement et réalisation d'une application web de gestion des tickets" />
-            <column name="company" value="Ministère de l’Équipement et de l’Eau - Rabat" />
-            <column name="start_date" value="2024-07-01" />
-            <column name="end_date" value="2024-08-30" />
-            <column name="type" value="Stage" />
-            <column name="tasks" value="Étude des processus existants de gestion des tickets. Conception de la base de données et mise en place du modèle relationnel. Réalisation des maquettes (avec Figma). Développement des modules de création, suivi et clôture de tickets. Intégration de l’authentification et gestion des profils utilisateurs." />
-            <column name="technologies" value="PHP / Laravel / MySQL / HTML / CSS / Bootstrap / GitHub / UML" />
+            <column name="title" value="Participation au développement et à la maintenance de solutions web multi-projets (développeuse full-stack)"/>
+            <column name="company" value="Manaos Consulting - Casablanca"/>
+            <column name="start_date" value="03/11/2025"/>
+            <column name="end_date" value="03/03/2026"/>
+            <column name="type" value="Stage"/>
+            <column name="tasks" value="Analyse des besoins fonctionnels et non fonctionnels des projets;Participation à la phase de tests (tests fonctionnels et validation);Développement et maintenance de sites web sous WordPress;Intégration de solutions tierces (ex : Zenchef pour la réservation de restaurants);Développement full-stack d'une plateforme e-commerce de matériels médicaux (back-office / front-end / back-end);Correction de bugs, optimisation des performances et amélioration de l'expérience utilisateur;Travail en environnement collaboratif avec gestion de versions"/>
+            <column name="technologies" value="PHP / Laravel / MySQL / Vue JS / NextJS / TypeScript / Pinia / HTML / CSS / JS / API Rest / Postman / GitLab / WordPress"/>
         </insert>
     </changeSet>
 
-    <!-- Changeset pour le stage Agence Nationale des Eaux et Forêts -->
+    <!-- 3. Stage de fin d'études DXC (mars 2025 → sept 2025) -->
     <changeSet id="3" author="manal">
         <insert tableName="experiences">
-            <column name="title" value="Conception et mise en œuvre d'un projet de réalisation d'une application web pour la gestion des contentieux" />
-            <column name="company" value="Agence Nationale des Eaux et Forêts - Rabat" />
-            <column name="start_date" value="2023-07-01" />
-            <column name="end_date" value="2023-08-31" />
-            <column name="type" value="Stage d’application" />
-            <column name="tasks" value="Analyse des besoins métier et rédaction des spécifications fonctionnelles. Conception de la base de données et modélisation UML. Développement des interfaces web (front-end et back-end). Intégration des fonctionnalités de gestion et suivi des contentieux. Réalisation des tests unitaires et validation fonctionnelle." />
-            <column name="technologies" value="Python / Django / HTML / CSS / Bootstrap / SQLite / UML" />
+            <column name="title" value="Refonte et amélioration technique d'une solution digitale de gestion de Pipeline commerciale (Si-Gestion)"/>
+            <column name="company" value="DXC Technology - Technopolis"/>
+            <column name="start_date" value="03/03/2025"/>
+            <column name="end_date" value="03/09/2025"/>
+            <column name="type" value="Stage de fin d'études"/>
+            <column name="tasks" value="Analyse de l'existant et rédaction des spécifications fonctionnelles et techniques;Développement back-end (Spring Boot, JPA, API REST) et optimisation des accès aux données;Refonte des interfaces front-end avec Angular (dashboards, formulaires, filtres);Gestion des migrations de base de données avec Liquibase;Réalisation de tests unitaires et d'intégration (JUnit, Mockito);Suivi agile du projet via Azure DevOps et gestion du code source sur GitHub"/>
+            <column name="technologies" value="Java / Spring Boot / Angular / Postman / IntelliJ IDEA / PostgreSQL / Azure DevOps / GitHub / Microsoft Teams / Liquibase / NPM / Maven / UML"/>
         </insert>
+    </changeSet>
+
+    <!-- 4. Stage Ministère (juil 2024 → août 2024) -->
+    <changeSet id="4" author="manal">
+        <insert tableName="experiences">
+            <column name="title" value="Conception, développement et réalisation d'une application web de gestion des tickets"/>
+            <column name="company" value="Ministère de l'Équipement et de l'Eau - Rabat"/>
+            <column name="start_date" value="01/07/2024"/>
+            <column name="end_date" value="30/08/2024"/>
+            <column name="type" value="Stage"/>
+            <column name="tasks" value="Étude des processus existants de gestion des tickets;Conception de la base de données et mise en place du modèle relationnel;Réalisation des maquettes avec Figma;Développement des modules de création, suivi et clôture de tickets;Intégration de l'authentification et gestion des profils utilisateurs"/>
+            <column name="technologies" value="PHP / Laravel / MySQL / HTML / CSS / Bootstrap / GitHub / UML"/>
+        </insert>
+    </changeSet>
+
+    <!-- 5. Stage ANEF (juil 2023 → août 2023) -->
+    <changeSet id="5" author="manal">
+        <insert tableName="experiences">
+            <column name="title" value="Conception et mise en œuvre d'une application web pour la gestion des contentieux"/>
+            <column name="company" value="Agence Nationale des Eaux et Forêts - Rabat"/>
+            <column name="start_date" value="01/07/2023"/>
+            <column name="end_date" value="31/08/2023"/>
+            <column name="type" value="Stage d'application"/>
+            <column name="tasks" value="Analyse des besoins métier et rédaction des spécifications fonctionnelles;Conception de la base de données et modélisation UML;Développement des interfaces web (front-end et back-end);Intégration des fonctionnalités de gestion et suivi des contentieux;Réalisation des tests unitaires et validation fonctionnelle"/>
+            <column name="technologies" value="Python / Django / HTML / CSS / Bootstrap / SQLite / UML"/>
+        </insert>
+    </changeSet>
+
+    <!-- ← Ajout des colonnes de traduction -->
+    <changeSet id="6" author="manal">
+        <addColumn tableName="experiences">
+            <column name="title_en" type="TEXT"/>
+            <column name="tasks_en" type="TEXT"/>
+            <column name="type_en" type="TEXT"/>
+        </addColumn>
+    </changeSet>
+
+    <!-- ← Traductions anglaises -->
+    <changeSet id="7" author="manal">
+        <update tableName="experiences">
+            <column name="title_en" value="Web application development and maintenance (Frontend and Backend)"/>
+            <column name="type_en" value="Full-stack developer &amp; QA"/>
+            <column name="tasks_en" value="Web application development and maintenance (Frontend and Backend);API implementation, database management and bug fixing;QA testing to ensure application quality and performance"/>
+            <where>company = 'Manaos Consulting - Casablanca' AND start_date = '03/03/2026'</where>
+        </update>
+
+        <update tableName="experiences">
+            <column name="title_en" value="Participation in the development and maintenance of multi-project web solutions (full-stack developer)"/>
+            <column name="type_en" value="Internship"/>
+            <column name="tasks_en" value="Analysis of functional and non-functional project requirements;Participation in the testing phase (functional tests and validation);Development and maintenance of WordPress websites;Integration of third-party solutions (e.g. Zenchef for restaurant reservations);Full-stack development of a medical equipment e-commerce platform (back-office / front-end / back-end);Bug fixing, performance optimization and user experience improvement;Collaborative work environment with version management"/>
+            <where>company = 'Manaos Consulting - Casablanca' AND start_date = '03/11/2025'</where>
+        </update>
+
+        <update tableName="experiences">
+            <column name="title_en" value="Redesign and technical improvement of a digital commercial pipeline management solution (Si-Gestion)"/>
+            <column name="type_en" value="Final year internship"/>
+            <column name="tasks_en" value="Analysis of existing system and writing functional and technical specifications;Back-end development (Spring Boot, JPA, REST API) and data access optimization;Front-end redesign with Angular (dashboards, forms, filters);Database migration management with Liquibase;Unit and integration testing (JUnit, Mockito);Agile project tracking via Azure DevOps and source code management on GitHub"/>
+            <where>company = 'DXC Technology - Technopolis'</where>
+        </update>
+
+        <update tableName="experiences">
+            <column name="title_en" value="Design, development and implementation of a web ticket management application"/>
+            <column name="type_en" value="Internship"/>
+            <column name="tasks_en" value="Study of existing ticket management processes;Database design and relational model setup;Wireframe creation with Figma;Development of ticket creation, tracking and closure modules;Authentication integration and user profile management"/>
+            <where>company = 'Ministère de l''Équipement et de l''Eau - Rabat'</where>
+        </update>
+
+        <update tableName="experiences">
+            <column name="title_en" value="Design and implementation of a web application for litigation management"/>
+            <column name="type_en" value="Application internship"/>
+            <column name="tasks_en" value="Business needs analysis and functional specifications writing;Database design and UML modeling;Web interface development (front-end and back-end);Integration of litigation management and tracking features;Unit testing and functional validation"/>
+            <where>company = 'Agence Nationale des Eaux et Forêts - Rabat'</where>
+        </update>
     </changeSet>
 
 </databaseChangeLog>

@@ -22,25 +22,34 @@ public class Experience implements Serializable {
     private Long id;
 
     @NonNull
-    private String title;        // Sujet de l'expérience ou stage
+    private String title;
 
     @NonNull
-    private String company;      // Entreprise ou organisme
+    private String company;
 
     @NonNull
-    private String startDate;    // format "dd/MM/yyyy" ou "MM/yyyy"
+    private String startDate;
 
     @NonNull
-    private String endDate;      // format "dd/MM/yyyy" ou "MM/yyyy"
+    private String endDate;
 
     @NonNull
-    private String type;         // Stage / Stage de fin d'études / Expérience professionnelle
+    private String type;
 
     @NonNull
     @Column(length = 2000)
-    private String tasks;        // Tâches réalisées
+    private String tasks;
 
     @NonNull
     @Column(length = 1000)
-    private String technologies; // Technologies utilisées
+    private String technologies;
+
+    @Column(columnDefinition = "TEXT")
+    private String titleEn;
+
+    @Column(columnDefinition = "TEXT")
+    private String tasksEn;
+
+    @Column(columnDefinition = "TEXT")
+    private String typeEn;
 }

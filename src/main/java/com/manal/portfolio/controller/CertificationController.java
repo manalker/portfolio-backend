@@ -22,23 +22,40 @@ public class CertificationController {
     @Autowired
     private CertificationRepository certificationRepository;
 
-    // 1️⃣ Récupérer toutes les certifications
     @GetMapping
     public List<Certification> getAllCertifications() {
         return certificationRepository.findAll();
     }
 
-    // 2️⃣ Créer une nouvelle certification
     @PostMapping
     public Certification createCertification(@RequestBody Certification certification) {
         return certificationRepository.save(certification);
     }
 
-    // 3️⃣ Télécharger / afficher un PDF
-    @GetMapping("/pdf/{fileName:.+}") // le .+ permet de prendre les noms avec extension
+    // ← ajoute endpoint PUT pour mettre à jour titleEn et descriptionEn
+    @PutMapping("/{id}")
+    public ResponseEntity<Certification> updateCertification(
+            @PathVariable Long id,
+            @RequestBody Certification updated) {
+        return certificationRepository.findById(id)
+                .map(cert -> {
+                    cert.setTitle(updated.getTitle());
+                    cert.setIssuer(updated.getIssuer());
+                    cert.setDescription(updated.getDescription());
+                    cert.setDateObtained(updated.getDateObtained());
+                    cert.setPdfUrl(updated.getPdfUrl());
+                    cert.setTitleEn(updated.getTitleEn());
+                    cert.setDescriptionEn(updated.getDescriptionEn());
+                    return ResponseEntity.ok(certificationRepository.save(cert));
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @GetMapping("/pdf/{fileName:.+}")
     public ResponseEntity<Resource> getCertificationPdf(@PathVariable String fileName) {
         try {
-            Path filePath = Paths.get("src/main/resources/static/certifications/").resolve(fileName).normalize();
+            Path filePath = Paths.get("src/main/resources/static/certifications/")
+                    .resolve(fileName).normalize();
             Resource resource = new UrlResource(filePath.toUri());
 
             if (!resource.exists()) {
@@ -46,7 +63,8 @@ public class CertificationController {
             }
 
             return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + resource.getFilename() + "\"")
+                    .header(HttpHeaders.CONTENT_DISPOSITION,
+                            "inline; filename=\"" + resource.getFilename() + "\"")
                     .body(resource);
 
         } catch (MalformedURLException e) {

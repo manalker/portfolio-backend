@@ -34,4 +34,10 @@ public class Certification implements Serializable {
     private String dateObtained;
 
     private String pdfUrl;
+
+    @Column(columnDefinition = "TEXT")
+    private String titleEn;
+
+    @Column(columnDefinition = "TEXT")
+    private String descriptionEn;
 }

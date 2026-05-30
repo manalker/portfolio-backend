@@ -43,35 +43,35 @@
 
         <insert tableName="projects">
             <column name="title" value="Agenda étudiant"/>
-            <column name="description" value="Développement d’une application mobile To-Do List pour aider les étudiants à gérer leurs tâches et événements académiques. Permet la création, modification et suppression des tâches, gére les tâches selon leur priorité et permet les notifications en temps réel ainssi qu'uen gestion des notes."/>
+            <column name="description" value="Développement d'une application mobile To-Do List pour aider les étudiants à gérer leurs tâches et événements académiques. Permet la création, modification et suppression des tâches, gére les tâches selon leur priorité et permet les notifications en temps réel ainssi qu'uen gestion des notes."/>
             <column name="technologies" value="Flutter, Dart, Node.js, MongoDB, Firebase, Postman, Figma, UML, GitHub, VSCode"/>
             <column name="image_url" value="agenda.png"/>
         </insert>
 
         <insert tableName="projects">
             <column name="title" value="Évaluation de faisabilité d'un projet entrepreuneurial"/>
-            <column name="description" value="Application permettant d’évaluer la faisabilité d’un projet entrepreneurial.Fournit une analyse complète et un rapport sur les aspects techniques, financiers et marketing,et permet au client de bien analyser la faisabilité de leurs projets pour une meilleur prise de décision"/>
+            <column name="description" value="Application permettant d'évaluer la faisabilité d'un projet entrepreneurial.Fournit une analyse complète et un rapport sur les aspects techniques, financiers et marketing,et permet au client de bien analyser la faisabilité de leurs projets pour une meilleur prise de décision"/>
             <column name="technologies" value="Python, Flask, Anaconda, VSCode, GitHub, Postman, React, MySQL"/>
             <column name="image_url" value="evaluation.png"/>
         </insert>
 
         <insert tableName="projects">
             <column name="title" value="Gestion des RH"/>
-            <column name="description" value="Développement d’une application web pour gérer les ressources humaines d’une entreprise : employés, congés, salaires et suivi des performances."/>
+            <column name="description" value="Développement d'une application web pour gérer les ressources humaines d'une entreprise : employés, congés, salaires et suivi des performances."/>
             <column name="technologies" value="Java, JEE, React, Bootstrap, SpringBoot, Spring Data, Spring MVC, Thymeleaf, MySQL, IntelliJ IDEA"/>
             <column name="image_url" value="rh.png"/>
         </insert>
 
         <insert tableName="projects">
             <column name="title" value="Autopartage"/>
-            <column name="description" value="Application mobile permettant aux utilisateurs de partager leurs voitures.Les utilisateurs peuvent réserver, suivre et gérer des trajets via l’application."/>
+            <column name="description" value="Application mobile permettant aux utilisateurs de partager leurs voitures.Les utilisateurs peuvent réserver, suivre et gérer des trajets via l'application."/>
             <column name="technologies" value="Flutter, Dart, Node.js, MongoDB, Firebase, Postman, Figma, UML, GitHub, VSCode"/>
             <column name="image_url" value="autopartage.png"/>
         </insert>
 
         <insert tableName="projects">
             <column name="title" value="Gestion des factures"/>
-            <column name="description" value="Développement d’une application web pour gérer les factures des clients et leur paiement: création, envoi et suivi des paiements, avec tableau de bord pour l’administration."/>
+            <column name="description" value="Développement d'une application web pour gérer les factures des clients et leur paiement: création, envoi et suivi des paiements, avec tableau de bord pour l'administration."/>
             <column name="technologies" value="Python, Django, Bootstrap, JavaScript, HTML, CSS, VSCode"/>
             <column name="image_url" value="factures.png"/>
         </insert>
@@ -82,6 +82,59 @@
             <column name="technologies" value="IntelliJ IDEA, Microservices, SpringBoot, Spring Cloud, Eureka, GitHub, UML"/>
             <column name="image_url" value="commandes.png"/>
         </insert>
+    </changeSet>
+
+    <!-- ← Ajout des colonnes title_en et description_en -->
+    <changeSet id="3" author="manal">
+        <addColumn tableName="projects">
+            <column name="title_en" type="TEXT"/>
+            <column name="description_en" type="TEXT"/>
+        </addColumn>
+    </changeSet>
+
+    <!-- ← Remplissage des traductions anglaises -->
+    <changeSet id="4" author="manal">
+        <update tableName="projects">
+            <column name="title_en" value="Portfolio Website"/>
+            <column name="description_en" value="Creation of my personal portfolio to showcase my projects, skills, education and experiences."/>
+            <where>title = 'Portfolio Website'</where>
+        </update>
+
+        <update tableName="projects">
+            <column name="title_en" value="Student Agenda"/>
+            <column name="description_en" value="Development of a mobile To-Do List application to help students manage their academic tasks and events. Supports task creation, editing and deletion, priority management, real-time notifications and note management."/>
+            <where>title = 'Agenda étudiant'</where>
+        </update>
+
+        <update tableName="projects">
+            <column name="title_en" value="Entrepreneurial Project Feasibility Assessment"/>
+            <column name="description_en" value="Application to evaluate the feasibility of an entrepreneurial project. Provides a comprehensive analysis and report on technical, financial and marketing aspects, helping clients make informed decisions about their projects."/>
+            <where>title = 'Évaluation de faisabilité d''un projet entrepreuneurial'</where>
+        </update>
+
+        <update tableName="projects">
+            <column name="title_en" value="HR Management"/>
+            <column name="description_en" value="Development of a web application to manage company human resources: employees, leave requests, salaries and performance tracking."/>
+            <where>title = 'Gestion des RH'</where>
+        </update>
+
+        <update tableName="projects">
+            <column name="title_en" value="Car Sharing"/>
+            <column name="description_en" value="Mobile application allowing users to share their cars. Users can book, track and manage trips through the application."/>
+            <where>title = 'Autopartage'</where>
+        </update>
+
+        <update tableName="projects">
+            <column name="title_en" value="Invoice Management"/>
+            <column name="description_en" value="Development of a web application to manage client invoices and payments: creation, sending and payment tracking, with an admin dashboard."/>
+            <where>title = 'Gestion des factures'</where>
+        </update>
+
+        <update tableName="projects">
+            <column name="title_en" value="Order Management"/>
+            <column name="description_en" value="Order management application based on a microservices architecture. Enables scalable order tracking, processing and notification."/>
+            <where>title = 'Gestion des commandes '</where>
+        </update>
     </changeSet>
 
 </databaseChangeLog>

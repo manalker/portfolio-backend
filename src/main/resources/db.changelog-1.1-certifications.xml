@@ -5,7 +5,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.24.xsd">
 
-    <!-- Création de la table certifications si elle n'existe pas -->
     <changeSet id="1" author="manal">
         <preConditions onFail="MARK_RAN">
             <not>
@@ -33,7 +32,6 @@
         </createTable>
     </changeSet>
 
-    <!-- Insertion des certifications -->
     <changeSet id="2" author="manal">
         <insert tableName="certifications">
             <column name="title" value="JUnit 5, Mockito, PowerMock, TDD, BDD &amp; ATTD"/>
@@ -131,4 +129,88 @@
             <column name="pdf_url" value="Java.pdf"/>
         </insert>
     </changeSet>
+
+    <!-- ← Ajout des colonnes title_en et description_en -->
+    <changeSet id="3" author="manal">
+        <addColumn tableName="certifications">
+            <column name="title_en" type="TEXT"/>
+            <column name="description_en" type="TEXT"/>
+        </addColumn>
+    </changeSet>
+
+    <!-- ← Traductions anglaises -->
+    <changeSet id="4" author="manal">
+        <update tableName="certifications">
+            <column name="title_en" value="JUnit 5, Mockito, PowerMock, TDD, BDD &amp; ATTD"/>
+            <column name="description_en" value="Training on unit testing and TDD / BDD practices"/>
+            <where>title = 'JUnit 5, Mockito, PowerMock, TDD, BDD &amp; ATTD'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Angular The Complete Guide '2025 Edition'"/>
+            <column name="description_en" value="Complete Angular 2025 training course"/>
+            <where>title = 'Angular The complete guide ''2025 Edition'''</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Fundamentals of Agile Project Management"/>
+            <column name="description_en" value="Training on agile project management"/>
+            <where>title = 'Les fondements de la gestion de projet agile'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Building Scalable Java Microservices with Spring Boot and Spring Cloud"/>
+            <column name="description_en" value="Building scalable Java microservices"/>
+            <where>title = 'Building Scalable Java Microservices with Spring Boot and Spring Cloud'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="React Native"/>
+            <column name="description_en" value="Mobile development training with React Native"/>
+            <where>title = 'React Native'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Software Engineering: Modeling Software Systems using UML"/>
+            <column name="description_en" value="Modeling software systems with UML"/>
+            <where>title = 'Software Engineering: Modeling Software Systems using UML'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Python for Everybody Specialization"/>
+            <column name="description_en" value="Including Python Data Structures, Using Databases with Python, Using Python to Access Web Data, and Capstone Project"/>
+            <where>title = 'Spécialisation Python for Everybody'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Virtual Networks in Azure"/>
+            <column name="description_en" value="Training on designing, configuring and managing virtual networks in Microsoft Azure, including subnets, firewalls and hybrid connectivity."/>
+            <where>title = 'Virtual Networks in Azure'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Introduction to Big Data with Spark and Hadoop"/>
+            <column name="description_en" value="Training on Big Data principles and the use of frameworks like Apache Hadoop and Apache Spark for distributed processing and large-scale data analysis."/>
+            <where>title = 'Introduction to Big Data with Spark and Hadoop'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Spring Boot Essentials"/>
+            <column name="description_en" value="Hands-on training on the Spring Boot framework, covering the creation of robust Java applications, configuration, RESTful services and integration with Spring Data JPA."/>
+            <where>title = 'L''essentiel de Spring Boot'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Neural Networks and Deep Learning"/>
+            <column name="description_en" value="In-depth introduction to neural networks and core Deep Learning concepts, including activation functions, backpropagation and AI model training."/>
+            <where>title = 'Neural Networks and Deep Learning'</where>
+        </update>
+
+        <update tableName="certifications">
+            <column name="title_en" value="Introduction to Java and Object-Oriented Programming"/>
+            <column name="description_en" value="Complete training on Java fundamentals and object-oriented programming principles, including classes, inheritance, polymorphism and exception handling."/>
+            <where>title = 'Introduction to Java and Object-Oriented Programming'</where>
+        </update>
+    </changeSet>
+
 </databaseChangeLog>

@@ -22,11 +22,17 @@ public class Formation implements Serializable {
     private Long id;
 
     @NonNull
-    private String diplome;      // ex: "Diplôme d’ingénieur en informatique et réseaux (Option : MIAGE)"
+    private String diplome;
 
     @NonNull
-    private String etablissement; // ex: "École Marocaine des Sciences de l’Ingénieur, Rabat"
+    private String etablissement;
 
     @NonNull
-    private String periode;       // ex: "2020-2025"
+    private String periode;
+
+    @Column(columnDefinition = "TEXT")
+    private String diplomeEn;
+
+    @Column(columnDefinition = "TEXT")
+    private String etablissementEn;
 }

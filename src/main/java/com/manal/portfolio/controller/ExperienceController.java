@@ -16,13 +16,11 @@ public class ExperienceController {
     @Autowired
     private ExperienceRepository experienceRepository;
 
-    // Récupérer toutes les expériences
     @GetMapping
     public List<Experience> getAllExperiences() {
         return experienceRepository.findAll();
     }
 
-    // Récupérer une expérience par ID
     @GetMapping("/{id}")
     public ResponseEntity<Experience> getExperienceById(@PathVariable Long id) {
         return experienceRepository.findById(id)
@@ -30,15 +28,15 @@ public class ExperienceController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Ajouter une expérience
     @PostMapping
     public Experience createExperience(@RequestBody Experience experience) {
         return experienceRepository.save(experience);
     }
 
-    // Mettre à jour une expérience
     @PutMapping("/{id}")
-    public ResponseEntity<Experience> updateExperience(@PathVariable Long id, @RequestBody Experience experienceDetails) {
+    public ResponseEntity<Experience> updateExperience(
+            @PathVariable Long id,
+            @RequestBody Experience experienceDetails) {
         return experienceRepository.findById(id).map(experience -> {
             experience.setTitle(experienceDetails.getTitle());
             experience.setCompany(experienceDetails.getCompany());
@@ -47,12 +45,14 @@ public class ExperienceController {
             experience.setType(experienceDetails.getType());
             experience.setTasks(experienceDetails.getTasks());
             experience.setTechnologies(experienceDetails.getTechnologies());
+            experience.setTitleEn(experienceDetails.getTitleEn());   // ← ajoute
+            experience.setTasksEn(experienceDetails.getTasksEn());   // ← ajoute
+            experience.setTypeEn(experienceDetails.getTypeEn());     // ← ajoute
             experienceRepository.save(experience);
             return ResponseEntity.ok(experience);
         }).orElse(ResponseEntity.notFound().build());
     }
 
-    // Supprimer une expérience
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteExperience(@PathVariable Long id) {
         return experienceRepository.findById(id).map(experience -> {

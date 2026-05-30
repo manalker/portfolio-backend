@@ -36,4 +36,10 @@ public class Project implements Serializable {
 
     @NonNull
     private String imageUrl;
+
+    @Column(columnDefinition = "TEXT")
+    private String titleEn;
+
+    @Column(columnDefinition = "TEXT")
+    private String descriptionEn;
 }
