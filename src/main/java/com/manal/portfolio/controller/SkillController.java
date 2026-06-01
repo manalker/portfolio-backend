@@ -59,9 +59,11 @@ public class SkillController {
     // Groupé par catégorie avec traduction
     @GetMapping("/grouped")
     public List<Map<String, Object>> getGroupedSkills() {
+
         List<Skill> allSkills = skillRepository.findAll();
 
         Map<String, List<Map<String, String>>> grouped = allSkills.stream()
+                .filter(s -> s.getCategory() != null)
                 .collect(Collectors.groupingBy(
                         Skill::getCategory,
                         LinkedHashMap::new,
@@ -76,16 +78,20 @@ public class SkillController {
 
         return grouped.entrySet().stream()
                 .map(e -> {
-                    // Récupère le categoryEn du premier élément de ce groupe
+
                     String categoryEn = allSkills.stream()
-                            .filter(s -> s.getCategory().equals(e.getKey()))
+                            .filter(s ->
+                                    s.getCategory() != null &&
+                                            s.getCategory().equals(e.getKey())
+                            )
                             .map(Skill::getCategoryEn)
+                            .filter(java.util.Objects::nonNull)
                             .findFirst()
                             .orElse(e.getKey());
 
                     return Map.of(
                             "name", e.getKey(),
-                            "nameEn", categoryEn != null ? categoryEn : e.getKey(),
+                            "nameEn", categoryEn,
                             "skills", e.getValue()
                     );
                 })
