@@ -22,10 +22,13 @@ public class Skill implements Serializable {
     private Long id;
 
     @NonNull
-    private String category; // Exemple: "Langages de programmation", "Développement Web & Mobile", etc.
+    private String category;
+
+    @Column(name = "category_en")
+    private String categoryEn;
 
     @NonNull
-    private String description; // Exemple: "C / Php / C++ / C# / JAVA / J2EE"
+    private String description;
 
     private String icon;
 }
