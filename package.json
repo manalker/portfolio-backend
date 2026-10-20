@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@vercel/node": "^25.0.0"
+  }
+}
